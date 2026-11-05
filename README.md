@@ -23,25 +23,25 @@ README has the line to paste.
 
 ![A blue button leaning toward the pointer, sinking when pressed and overshooting on release](media/leaf-spring.gif)
 
-[Try it live](https://unbland.dev/effects/leaf-spring/) · [Read more](leaf-spring/)
+[Try it live](https://unbland.dev/effects/leaf-spring/) · [Open on CodePen](https://codepen.io/pqivuaul-the-scripter/pen/XJMoRXy) · [Read more](leaf-spring/)
 
 ## Glyph Static
 
 ![A headline resolving out of random characters](media/glyph-static.gif)
 
-[Try it live](https://unbland.dev/effects/glyph-static/) · [Read more](glyph-static/)
+[Try it live](https://unbland.dev/effects/glyph-static/) · [Open on CodePen](https://codepen.io/pqivuaul-the-scripter/pen/EaWGmPr) · [Read more](glyph-static/)
 
 ## Shutter Type
 
 ![A headline whose letters slide into view from under a clipped edge](media/shutter-type.gif)
 
-[Try it live](https://unbland.dev/effects/shutter-type/) · [Read more](shutter-type/)
+[Try it live](https://unbland.dev/effects/shutter-type/) · [Open on CodePen](https://codepen.io/pqivuaul-the-scripter/pen/JoWwNGq) · [Read more](shutter-type/)
 
 ## Silver Halide
 
 ![Film grain and a vignette over paper, near-black and a flat gradient](media/silver-halide.png)
 
-[Try it live](https://unbland.dev/effects/silver-halide/) · [Read more](silver-halide/)
+[Try it live](https://unbland.dev/effects/silver-halide/) · [Open on CodePen](https://codepen.io/pqivuaul-the-scripter/pen/LEWMyGw) · [Read more](silver-halide/)
 
 ## Licence
 
