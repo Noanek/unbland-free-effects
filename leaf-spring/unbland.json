@@ -1,0 +1,17 @@
+{
+  "unbland": 1,
+  "slug": "leaf-spring",
+  "name": "Leaf Spring",
+  "version": "1.0.0",
+  "description": "A button with mass — it leans toward the pointer, sinks when pressed, and overshoots on release, with the label inside travelling further than the button around it.",
+  "licence": "free",
+  "dependencies": [],
+  "entry": {
+    "html": "runtime/leaf-spring.js",
+    "demo": "dist/demo.html"
+  },
+  "files": [
+    "runtime/leaf-spring.js",
+    "dist/demo.html"
+  ]
+}

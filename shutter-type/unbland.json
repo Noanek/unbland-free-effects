@@ -1,0 +1,17 @@
+{
+  "unbland": 1,
+  "slug": "shutter-type",
+  "name": "Shutter Type",
+  "version": "1.0.0",
+  "description": "Letters arrive from under their own clipped edge, with the reveal sweeping across the block as one front.",
+  "licence": "free",
+  "dependencies": [],
+  "entry": {
+    "html": "runtime/shutter-type.js",
+    "demo": "dist/demo.html"
+  },
+  "files": [
+    "runtime/shutter-type.js",
+    "dist/demo.html"
+  ]
+}

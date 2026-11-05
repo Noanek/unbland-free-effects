@@ -1,0 +1,132 @@
+UNBLAND FREE EFFECT LICENCE
+Version 1.0
+
+unbland — https://unbland.dev
+
+This licence covers one effect, given away. Nothing was paid for it and nothing
+is owed for it. It grants no rights to any other unbland product.
+
+
+IN SHORT
+
+  Use it in as many Projects as you like, forever, at no cost.
+  A Project is one website or one application.
+  Commercial work counts. Client work counts, and the client keeps theirs.
+  Change the code as much as you want.
+  Keep the credit comment at the top of the source file.
+  Do not sell it, and do not republish it as your own effect, template,
+    theme or component library.
+  There is no warranty and no support obligation.
+  Nothing in the files checks, phones home or enforces any of this.
+
+The sections below are the actual terms. Where this summary and they differ,
+they govern.
+
+
+1. WHAT THIS COVERS
+
+"the Effect"       The single visual effect named in the VERSION file in this
+                   package, at the version stated there.
+"you"              The person or organisation that received the Effect.
+"Project"          One website or one application, together with its
+                   development, staging and preview environments.
+
+
+2. WHAT YOU MAY DO
+
+2.1  Use the Effect in any number of Projects, personal or commercial, with no
+     fee and no registration.
+
+2.2  Use it in Projects you build for clients. The client may keep using it in
+     that Project indefinitely, and does not need a licence of their own.
+
+2.3  Modify, extend, restyle or cut down the source as far as fitting it into
+     your Project requires — including changes that go well beyond the
+     documented options.
+
+2.4  Keep using the version you have for as long as you like. There is no
+     expiry, no renewal and no deactivation.
+
+
+3. WHAT YOU MAY NOT DO
+
+3.1  Sell the Effect, or charge anyone for access to it.
+
+3.2  Republish or redistribute the Effect on its own — as your own work, under
+     another name, or as an entry in an effect library, component library,
+     template, theme or marketplace listing. Shipping it inside a Project you
+     built is not redistribution; shipping it as a product is.
+
+3.3  Remove or alter the credit comment at the top of the source file. You may
+     minify the file for production, and a minifier that strips the comment in
+     the output is fine — the comment must stay in the source you keep.
+
+3.4  Represent the Effect as your own creation, or imply that unbland endorses
+     your Project.
+
+
+4. THE CREDIT
+
+4.1  The source file opens with a short comment naming the Effect and
+     https://unbland.dev. That comment is the only thing asked in return for
+     the Effect, and section 3.3 is its whole extent.
+
+4.2  Visible credit on your page is welcome and is not required.
+
+4.3  The runtime prints one line to the browser console naming the Effect. It
+     is a credit, not telemetry: nothing is sent anywhere, and no data about
+     you, your Project or your visitors is collected or transmitted. Setting
+     the documented `credit` option to false turns the line off, and doing so
+     breaches nothing in this licence.
+
+
+5. NO WARRANTY
+
+5.1  The Effect is provided as is. To the fullest extent the law allows,
+     unbland gives no warranties of any kind, express or implied, including
+     fitness for a particular purpose and non-infringement.
+
+5.2  You are responsible for deciding whether the Effect is suitable for your
+     Project, and for testing it there.
+
+
+6. NO SUPPORT OBLIGATION
+
+6.1  Nothing here obliges unbland to answer questions, fix defects, keep the
+     Effect compatible with future browsers, or publish further versions.
+
+6.2  Questions are welcome at the address in SUPPORT.txt and are answered as
+     time allows. Paid unbland effects carry the support terms set out in
+     their own licence; this one does not.
+
+
+7. LIABILITY
+
+7.1  To the fullest extent the law allows, unbland is not liable for any loss
+     or damage arising from the Effect or its use, including lost revenue,
+     lost data, or damage to any Project — whether or not unbland was advised
+     such loss was possible.
+
+7.2  Nothing in this licence limits liability that cannot be limited by law.
+
+
+8. IF THIS LICENCE IS BREACHED
+
+8.1  Breaching section 3 ends your rights under this licence immediately.
+
+8.2  Removing the breaching material, or restoring the credit comment,
+     restores them.
+
+8.3  Projects already delivered to a client in good faith before the breach
+     are not affected.
+
+
+9. GENERAL
+
+9.1  This licence is the whole agreement about the Effect and replaces any
+     earlier statement about it.
+
+9.2  If a provision is unenforceable, the rest stays in force.
+
+9.3  A later version of the Effect may carry a different licence. The licence
+     in the package you received governs the copy you received.

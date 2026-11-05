@@ -1,0 +1,17 @@
+{
+  "unbland": 1,
+  "slug": "glyph-static",
+  "name": "Glyph Static",
+  "version": "1.0.0",
+  "description": "Text that resolves out of noise — each character cycles through substitute glyphs and locks, with the settling front running through the line.",
+  "licence": "free",
+  "dependencies": [],
+  "entry": {
+    "html": "runtime/glyph-static.js",
+    "demo": "dist/demo.html"
+  },
+  "files": [
+    "runtime/glyph-static.js",
+    "dist/demo.html"
+  ]
+}

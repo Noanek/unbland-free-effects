@@ -1,0 +1,8 @@
+Effect:       Leaf Spring
+Version:      1.0.0
+Release Date: 2026-10-26
+Vendor:       unbland
+URL:          https://unbland.dev
+Licence:      Unbland Free Effect Licence
+
+A button with mass — it leans toward the pointer, sinks when pressed, and overshoots on release, with the label inside travelling further than the button around it.

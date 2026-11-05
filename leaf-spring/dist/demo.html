@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leaf Spring — unbland</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --chalk:#e8eae3; --chalk-deep:#dcdfd6; --graphite:#16181c; --graphite-soft:#4a4e47;
+    --specimen:#0a0b0d; --cobalt:#2340ff; --cobalt-ink:#1a2fc4; --rule:#c4c8bd;
+    --ff-display:"Bricolage Grotesque",-apple-system,sans-serif;
+    --ff-mono:"Martian Mono",ui-monospace,Menlo,monospace;
+    --gutter:clamp(16px,4vw,56px);
+  }
+  *{box-sizing:border-box}
+  html{background:var(--chalk);color:var(--graphite)}
+  body{margin:0;font-family:var(--ff-display);-webkit-font-smoothing:antialiased}
+  :focus-visible{outline:2px solid var(--cobalt);outline-offset:4px}
+  ::selection{background:var(--cobalt);color:#fff}
+  .mono{font-family:var(--ff-mono);font-size:12px;letter-spacing:.02em;
+    font-variation-settings:"wdth" 90;color:var(--graphite-soft)}
+
+  .sheet{max-width:1080px;margin:0 auto;padding:clamp(28px,6vh,72px) var(--gutter) 96px}
+  .head{display:flex;justify-content:space-between;align-items:baseline;
+    border-bottom:1px solid var(--rule);padding-bottom:14px}
+  .head h1{margin:0;font-size:15px;font-weight:700;letter-spacing:.02em}
+  .head a{color:var(--cobalt);text-decoration:none;font-family:var(--ff-mono);font-size:12px}
+  .head a:hover{text-decoration:underline}
+
+  /* The specimen is ordinary interface, because that is the whole claim: this
+     goes on the buttons you already have. */
+  .window{position:relative;margin-top:28px;background:var(--specimen);color:#eef0ff;
+    padding:clamp(40px,8vw,90px) clamp(20px,5vw,56px);min-height:54vh;
+    display:grid;place-items:center}
+
+  .btn{display:inline-flex;align-items:center;gap:.6em;
+    padding:clamp(17px,2.4vw,24px) clamp(32px,5vw,54px);border-radius:999px;
+    background:var(--cobalt);color:#fff;text-decoration:none;border:0;cursor:pointer;
+    font:700 clamp(17px,2.6vw,25px)/1 var(--ff-display);letter-spacing:-.01em;
+    /* The host's own transform, left in deliberately: the effect writes
+       translate and scale, which compose with this instead of replacing it. */
+    transform:rotate(-.6deg)}
+  .btn:hover{background:var(--cobalt-ink)}
+  .hint{margin:18px 0 0;text-align:center}
+
+  .controls{margin-top:32px;display:grid;gap:0;
+    grid-template-columns:repeat(auto-fit,minmax(224px,1fr));
+    border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+  .ctl{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:16px 18px}
+  .ctl label{display:block;margin-bottom:9px}
+  .ctl label b{display:block;font-family:var(--ff-mono);font-size:11px;font-weight:700;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--graphite)}
+  .ctl label span{font-family:var(--ff-mono);font-size:11px;color:var(--graphite-soft)}
+  input[type=range]{width:100%;accent-color:var(--cobalt);margin:0}
+
+  .snippet{margin-top:32px}
+  .snippet h2{font-family:var(--ff-mono);font-size:11px;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;margin:0 0 10px}
+  pre{margin:0;background:var(--specimen);color:#cdd3f5;padding:18px 20px;overflow-x:auto;
+    font-family:var(--ff-mono);font-size:12.5px;line-height:1.65}
+  .tok-k{color:#8e9bff}.tok-s{color:#9ee7c8}.tok-n{color:#f0c674}
+
+  footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:var(--cobalt)}
+
+  .hint .touch{display:none}
+  @media (hover:none){ .hint .mouse{display:none} .hint .touch{display:inline} }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="head">
+    <h1>Leaf Spring <span class="mono" style="font-weight:400">· v1.0.0 · free</span></h1>
+    <a href="https://unbland.dev">unbland.dev</a>
+  </div>
+
+  <div class="window">
+    <button class="btn" data-spring><span>Buy the library</span></button>
+  </div>
+
+  <p class="hint mono">
+    <span class="mouse">Move the pointer near it, take it away quickly &mdash; then press, hold and drag it</span>
+    <span class="touch">Press, hold and drag it about. The lean needs a pointer; this does not</span>
+  </p>
+
+  <div class="controls">
+    <div class="ctl">
+      <label for="damping"><b>damping</b><span><i id="damping-v">0.76</i> &mdash; under 1 is what gives it mass</span></label>
+      <input type="range" id="damping" min="0.4" max="0.96" step="0.01" value="0.76">
+    </div>
+    <div class="ctl">
+      <label for="stiffness"><b>stiffness</b><span><i id="stiffness-v">0.12</i> how hard it pulls back</span></label>
+      <input type="range" id="stiffness" min="0.02" max="0.4" step="0.01" value="0.12">
+    </div>
+    <div class="ctl">
+      <label for="pull"><b>pull</b><span><i id="pull-v">0.34</i> of the way to the pointer</span></label>
+      <input type="range" id="pull" min="0" max="1" step="0.02" value="0.34">
+    </div>
+    <div class="ctl">
+      <label for="reach"><b>reach</b><span><i id="reach-v">150</i> px it is felt from</span></label>
+      <input type="range" id="reach" min="30" max="420" step="10" value="150">
+    </div>
+    <div class="ctl">
+      <label for="max"><b>max</b><span>never more than <i id="max-v">34</i> px</span></label>
+      <input type="range" id="max" min="4" max="120" step="2" value="34">
+    </div>
+    <div class="ctl">
+      <label for="press"><b>press</b><span>sinks to <i id="press-v">0.94</i> when held &mdash; 1 is off</span></label>
+      <input type="range" id="press" min="0.8" max="1" step="0.01" value="0.94">
+    </div>
+    <div class="ctl">
+      <label for="drag"><b>drag</b><span><i id="drag-v">0.55</i> of a held finger's travel</span></label>
+      <input type="range" id="drag" min="0" max="1" step="0.05" value="0.55">
+    </div>
+    <div class="ctl">
+      <label for="dragMax"><b>dragMax</b><span>never past <i id="dragMax-v">46</i> px, however hard</span></label>
+      <input type="range" id="dragMax" min="10" max="140" step="2" value="46">
+    </div>
+    <div class="ctl">
+      <label for="innerPull"><b>innerPull</b><span><i id="innerPull-v">0.42</i> extra travel for the label</span></label>
+      <input type="range" id="innerPull" min="0" max="1.2" step="0.02" value="0.42">
+    </div>
+  </div>
+
+  <div class="snippet">
+    <h2>Your settings</h2>
+    <pre id="code"></pre>
+  </div>
+
+  <footer class="mono">
+    <span>Free under the Unbland Free Effect Licence. Keep the credit comment; don't resell it.</span>
+    <a href="https://unbland.dev">More effects →</a>
+  </footer>
+
+</div>
+
+<script src="../runtime/leaf-spring.js"></script>
+<script>
+  const code = document.getElementById('code');
+  let fx = null;
+
+  const KEYS = ['damping','stiffness','pull','reach','max','press','drag','dragMax','innerPull'];
+
+  function options() {
+    const o = {};
+    for (const k of KEYS) o[k] = +document.getElementById(k).value;
+    return o;
+  }
+
+  function render(o) {
+    code.innerHTML =
+      `<span class="tok-k">UnblandLeafSpring</span>.create(<span class="tok-s">'.btn'</span>, {\n` +
+      KEYS.map(k => `  ${(k + ':').padEnd(11)}<span class="tok-n">${o[k]}</span>,`).join('\n') +
+      `\n});`;
+  }
+
+  function build() {
+    const o = options();
+    for (const k of KEYS) document.getElementById(k + '-v').textContent = o[k];
+    render(o);
+    /* setConfig is enough — none of these change which elements are involved. */
+    if (fx) fx.setConfig(o);
+    else fx = UnblandLeafSpring.create('[data-spring]', o);
+  }
+
+  for (const k of KEYS) document.getElementById(k).addEventListener('input', build);
+  build();
+</script>
+</body>
+</html>

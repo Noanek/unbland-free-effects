@@ -1,0 +1,17 @@
+{
+  "unbland": 1,
+  "slug": "silver-halide",
+  "name": "Silver Halide",
+  "version": "1.0.0",
+  "description": "A film stock over a page or a section — grain, a vignette and a colour cast, with no JavaScript running after the first frame.",
+  "licence": "free",
+  "dependencies": [],
+  "entry": {
+    "html": "runtime/silver-halide.js",
+    "demo": "dist/demo.html"
+  },
+  "files": [
+    "runtime/silver-halide.js",
+    "dist/demo.html"
+  ]
+}

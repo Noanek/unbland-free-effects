@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glyph Static — unbland</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --chalk:#e8eae3; --chalk-deep:#dcdfd6; --graphite:#16181c; --graphite-soft:#4a4e47;
+    --specimen:#0a0b0d; --cobalt:#2340ff; --rule:#c4c8bd;
+    --ff-display:"Bricolage Grotesque",-apple-system,sans-serif;
+    --ff-mono:"Martian Mono",ui-monospace,Menlo,monospace;
+    --gutter:clamp(16px,4vw,56px);
+  }
+  *{box-sizing:border-box}
+  html{background:var(--chalk);color:var(--graphite)}
+  body{margin:0;font-family:var(--ff-display);-webkit-font-smoothing:antialiased}
+  :focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+  ::selection{background:var(--cobalt);color:#fff}
+
+  .mono{font-family:var(--ff-mono);font-size:12px;letter-spacing:.02em;
+    font-variation-settings:"wdth" 90;color:var(--graphite-soft)}
+
+  .sheet{max-width:1080px;margin:0 auto;padding:clamp(28px,6vh,72px) var(--gutter) 96px}
+
+  .head{display:flex;justify-content:space-between;align-items:baseline;
+    border-bottom:1px solid var(--rule);padding-bottom:14px}
+  .head h1{margin:0;font-size:15px;font-weight:700;letter-spacing:.02em}
+  .head a{color:var(--cobalt);text-decoration:none;font-family:var(--ff-mono);font-size:12px}
+  .head a:hover{text-decoration:underline}
+
+  .window{margin-top:28px;background:var(--specimen);color:#eef0ff;
+    padding:clamp(40px,9vw,104px) clamp(20px,5vw,64px);
+    display:grid;place-items:center;gap:26px;min-height:46vh}
+  /* The specimen is monospaced here, not because the effect needs it, but
+     because static resolving into words is easier to read as a mechanism when
+     the characters sit on a grid. The effect holds the line steady either way. */
+  .specimen{margin:0;max-width:20ch;text-align:center;font-weight:600;
+    line-height:1.08;letter-spacing:-.01em;
+    font-size:clamp(34px,7.5vw,84px);
+    font-variation-settings:"wght" 600,"wdth" 92,"opsz" 96}
+  .replay{font-family:var(--ff-mono);font-size:12px;letter-spacing:.06em;
+    text-transform:uppercase;background:var(--cobalt);color:#fff;border:0;
+    padding:10px 18px;cursor:pointer;border-radius:999px}
+  .replay:hover{background:#1a2fc4}
+
+  .controls{margin-top:34px;display:grid;gap:0;
+    grid-template-columns:repeat(auto-fit,minmax(224px,1fr));
+    border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+  .ctl{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:16px 18px}
+  .ctl label{display:block;margin-bottom:9px}
+  .ctl label b{display:block;font-family:var(--ff-mono);font-size:11px;font-weight:700;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--graphite)}
+  .ctl label span{font-family:var(--ff-mono);font-size:11px;color:var(--graphite-soft)}
+  input[type=range]{width:100%;accent-color:var(--cobalt);margin:0}
+  select,input[type=text]{width:100%;font-family:var(--ff-mono);font-size:12px;padding:6px 8px;
+    border:1px solid var(--rule);background:var(--chalk-deep);color:var(--graphite);border-radius:0}
+  .row{display:flex;gap:16px;flex-wrap:wrap}
+  .row label{display:flex;align-items:center;gap:6px;margin:0;font-family:var(--ff-mono);font-size:12px}
+  input[type=checkbox]{accent-color:var(--cobalt);margin:0}
+
+  .snippet{margin-top:34px}
+  .snippet h2{font-family:var(--ff-mono);font-size:11px;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;margin:0 0 10px}
+  pre{margin:0;background:var(--specimen);color:#cdd3f5;padding:18px 20px;overflow-x:auto;
+    font-family:var(--ff-mono);font-size:12.5px;line-height:1.65}
+  .tok-k{color:#8e9bff}.tok-s{color:#9ee7c8}.tok-n{color:#f0c674}
+
+  footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:var(--cobalt)}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="head">
+    <h1>Glyph Static <span class="mono" style="font-weight:400">· v1.0.0 · free</span></h1>
+    <a href="https://unbland.dev">unbland.dev</a>
+  </div>
+
+  <div class="window">
+    <h2 class="specimen" id="specimen">Resolving out of noise</h2>
+    <button class="replay" id="replay">Run it again</button>
+  </div>
+
+  <div class="controls">
+    <div class="ctl">
+      <label for="duration"><b>duration</b><span><i id="duration-v">1100</i> ms end to end</span></label>
+      <input type="range" id="duration" min="200" max="3000" step="50" value="1100">
+    </div>
+    <div class="ctl">
+      <label for="settle"><b>settle</b><span><i id="settle-v">380</i> ms per character</span></label>
+      <input type="range" id="settle" min="60" max="1400" step="20" value="380">
+    </div>
+    <div class="ctl">
+      <label for="fps"><b>fps</b><span><i id="fps-v">22</i> glyph swaps a second</span></label>
+      <input type="range" id="fps" min="4" max="60" step="1" value="22">
+    </div>
+    <div class="ctl">
+      <label for="trigger"><b>trigger</b><span>what starts it</span></label>
+      <select id="trigger">
+        <option value="manual" selected>manual — the button</option>
+        <option value="view">view — scrolled into sight</option>
+        <option value="hover">hover</option>
+        <option value="load">load</option>
+      </select>
+    </div>
+    <div class="ctl">
+      <label for="glyphs"><b>glyphs</b><span>what it scrambles with</span></label>
+      <input type="text" id="glyphs" value="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789">
+    </div>
+    <div class="ctl">
+      <label><b>accent</b><span>colour while a character is unsettled</span></label>
+      <div class="row">
+        <label><input type="checkbox" id="accent-on" checked> cobalt</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="snippet">
+    <h2>Your settings</h2>
+    <pre id="code"></pre>
+  </div>
+
+  <footer class="mono">
+    <span>Free under the Unbland Free Effect Licence. Keep the credit comment; don't resell it.</span>
+    <a href="https://unbland.dev">More effects →</a>
+  </footer>
+
+</div>
+
+<script src="../runtime/glyph-static.js"></script>
+<script>
+  const el = document.getElementById('specimen');
+  const code = document.getElementById('code');
+  let fx = null;
+
+  function options() {
+    return {
+      duration: +document.getElementById('duration').value,
+      settle:   +document.getElementById('settle').value,
+      fps:      +document.getElementById('fps').value,
+      trigger:   document.getElementById('trigger').value,
+      glyphs:    document.getElementById('glyphs').value,
+      accent:    document.getElementById('accent-on').checked ? '#2340ff' : '',
+      once:      false,
+    };
+  }
+
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+
+  function render(o) {
+    const g = o.glyphs.length > 26 ? o.glyphs.slice(0, 26) + '…' : o.glyphs;
+    code.innerHTML =
+      `<span class="tok-k">UnblandGlyphStatic</span>.create(<span class="tok-s">'#headline'</span>, {\n` +
+      `  duration: <span class="tok-n">${o.duration}</span>,\n` +
+      `  settle:   <span class="tok-n">${o.settle}</span>,\n` +
+      `  fps:      <span class="tok-n">${o.fps}</span>,\n` +
+      `  trigger:  <span class="tok-s">'${esc(o.trigger)}'</span>,\n` +
+      `  glyphs:   <span class="tok-s">'${esc(g)}'</span>,\n` +
+      (o.accent ? `  accent:   <span class="tok-s">'${o.accent}'</span>,\n` : '') +
+      `});`;
+  }
+
+  function build(play) {
+    const o = options();
+    for (const k of ['duration','settle','fps']) document.getElementById(k + '-v').textContent = o[k];
+    render(o);
+    if (fx) fx.destroy();
+    fx = UnblandGlyphStatic.create(el, o);
+    if (play && fx) fx.play();
+  }
+
+  for (const id of ['duration','settle','fps','trigger','glyphs','accent-on']) {
+    document.getElementById(id).addEventListener('input', () => build(false));
+  }
+  document.getElementById('replay').addEventListener('click', () => build(true));
+
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => build(true));
+</script>
+</body>
+</html>
